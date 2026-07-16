@@ -1,0 +1,62 @@
+/*
+ * Kaizen (KUI) global theme for the Adobe block collection.
+ * Loaded AFTER styles/styles.css. Overrides the boilerplate design tokens with
+ * Kaizen values, so every Adobe block inherits the Kaizen look — Adobe block JS
+ * and block CSS stay 100% untouched (OOTB). No React, keeps Lighthouse high.
+ */
+
+@font-face {
+  font-family: "NVIDIA Sans";
+  src: url("/fonts/NVIDIASansVF_NALA_W_Wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --nv-green: #76b900;
+  --nv-green-dark: #5c9400;
+
+  /* colors -> Kaizen (real Kaizen token wins if @kui/foundations-css is loaded) */
+  --background-color: #fff;
+  --light-color: var(--background-color-surface-raised, #f6f7f8);
+  --dark-color: var(--color-text-secondary, #76797c);
+  --text-color: var(--text-color-primary, #1a1a1a);
+  --link-color: var(--text-color-brand, var(--nv-green));
+  --link-hover-color: var(--nv-green-dark);
+
+  /* fonts -> NVIDIA Sans */
+  --body-font-family: "NVIDIA Sans", var(--font-sans), system-ui, -apple-system, sans-serif;
+  --heading-font-family: "NVIDIA Sans", var(--font-sans), system-ui, -apple-system, sans-serif;
+
+  /* Kaizen-aligned type scale */
+  --body-font-size-m: 18px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
+  --heading-font-size-xxl: 56px;
+  --heading-font-size-xl: 40px;
+  --heading-font-size-l: 32px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.01em; }
+
+/* Kaizen buttons (green primary; pill radius already close) */
+a.button.primary, button.button.primary,
+a.button.accent, button.button.accent {
+  border-color: var(--text-color-brand, var(--nv-green));
+  background-color: var(--text-color-brand, var(--nv-green));
+  color: #000;
+}
+a.button.primary:hover, button.button.primary:hover,
+a.button.accent:hover, button.button.accent:hover {
+  border-color: var(--nv-green-dark);
+  background-color: var(--nv-green-dark);
+  color: #000;
+}
+a.button.secondary, button.button.secondary {
+  border-color: var(--text-color-brand, var(--nv-green));
+  color: var(--text-color);
+}
